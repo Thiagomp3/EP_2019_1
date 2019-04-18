@@ -1,42 +1,54 @@
 # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - aluno A: Thiago Pegorrer, fulanos@insper.edu.br
-# - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+# - aluno A: Thiago Pegorrer, thiagomp3@insper.edu.br
+# - aluno B: André Nadalini, andrebn1@insper.edu.br
 
-def carregar_cenarios():
+def cenarios_Ep():
     cenarios = {
-        "inicio": {
-            "titulo": "Saguao do perigo",
-            "descricao": "Voce esta no saguao de entrada do insper",
-            "opcoes": {
-                "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
+        'inicio': {
+            'titulo': 'saguão do Insper',
+            'descrição': 'você se encontra no saguão do Insper e precisa achar o Mestre Andrew',
+            'opções': {
+                'segundo andar':'pegar elevador para o segundo andar',
+                'fumodromo':'ir até o fumodromo'
             }
         },
-        "andar professor": {
-            "titulo": "Andar do desespero",
-            "descricao": "Voce chegou ao andar da sala do seu professor",
-            "opcoes": {
-                "inicio": "Tomar o elevador para o saguao de entrada",
-                "professor": "Falar com o professor"
+        'segundo andar': {
+            'titulo':'segundo andar do prédio novo',
+            'descrição':'Você se encontra no segundo andar do Insper, porem o Mestre Andrew nao esta ai',
+            'opções':{
+                'Tobogã':'Pegar o tobogã para a sala dos professores'
             }
         },
-        "professor": {
-            "titulo": "O monstro do Python",
-            "descricao": "Voce foi pedir para o professor adiar o EP. "
-                         "O professor revelou que é um monstro disfarçado "
-                         "e devorou sua alma.",
-            "opcoes": {}
-        },
-        "biblioteca": {
-            "titulo": "Caverna da tranquilidade",
-            "descricao": "Voce esta na biblioteca",
-            "opcoes": {
-                "inicio": "Voltar para o saguao de entrada"
+        'fumodromo': {
+            'titulo':'fumodromo do Insper',
+            'descrição': 'Você adentra a misteriosa cortina de nicotina criada pelos Juuls, mas nao acha o Mestre. Eis que um Veterano te oferece um Juul da barganha',
+            'opcões': {
+                'aceitar Juul':'Você aceita o Juul e sua visão se esfumaça',
+                'inicio': 'Você ouve os conselhos de sua mae e nao aceita o Juul e volta para o Saguão do Insper'
             }
+        },
+        'Tobogã': {
+            'titulo': 'Tobogã traiçoeiro',
+            'descrição':'Voce pega o Tobogã, mas ao em vez de sair no terreo, voce se teletransporta para o Economiadas',
+            'opções': {
+                'Ficar bebendo': 'voce entra na Tenda e encarna o espirito do Econo',
+                'inicio':'Voce resolve entrar no tobogã de novo e volta para o saguão do Insper'
+            }
+        },
+        'Ficar bebendo':{
+            'titulo': 'Já é Econo!',
+            'descrição':'Você optou por esquecer o EP e ficar no Econo, atingindo o Nirvana!',
+            'opções': {}
+        },
+            'Aceitar Juul': {
+            'titulo': 'Caminho da salvação',
+            'descrição': 'Ao aceitar o Juul sua visao se esfumaça e voce é guiado diretamente para o Mestre Andrew',
+            'opções': {}
         }
     }
+    
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
