@@ -54,20 +54,24 @@ def cenarios_Ep():
 
 
 def main():
-    print("Na hora do sufoco!")
-    print("------------------")
-    print()
-    print("Parecia uma boa idéia: vou só jogar um pouquinho/assistir Netflix/"
-        "embaçar em geral. Amanhã eu começo o EP. Mas isso não deu certo...")
-    print()
-    print("É o dia de entregar o EP e você está muuuuito atrasado! Você está "
-        "na entrada do Insper, e quer procurar o professor para pedir um "
-        "adiamento do EP (boa sorte...)")
-    print()
-
+    print ('Bem vindo ao Git')
+    print ('----------------')
+    print ()
+    print ('Após inúmeras aulas de python, usando if, while, for,' 
+           'etc com o spyder você estava completamente confiante quanto'
+           ' à matéria de DesSoft, pensando que o EP seria tranquilo e '
+           'possível de ser feito um dia antes da entrega.')
+    print ()
+    print ('Porém ao abrir o pdf você se depara com algo novo, o GIT!!'
+        'Assim, comça a ler as instruções e tentar fazer o projeto'
+        'pórem, depois de passar mais de 3 horas e não conseguir nem'
+        'clonar o diretório para o seu computador nem entender o que'
+        'fazia push e pull, você resolve partir para outra abordagem,'
+        'pedir ao Mestre Andrew para adiar a entrega do EP. Assim '
+        'começa a sua jornada, nobre aspirante a engenheiro. Boa Sorte'
+        ' e que o espírito do sábio Marcos Lisboa esteja com você.')
     cenarios, nome_cenario_atual = carregar_cenarios()
-
-    game_over = False
+    game_over= False
     while not game_over:
         cenario_atual = cenarios[nome_cenario_atual]
 
