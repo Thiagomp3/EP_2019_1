@@ -70,13 +70,17 @@ def main():
         'pedir ao Mestre Andrew para adiar a entrega do EP. Assim '
         'começa a sua jornada, nobre aspirante a engenheiro. Boa Sorte'
         ' e que o espírito do sábio Marcos Lisboa esteja com você.')
-    cenarios, nome_cenario_atual = carregar_cenarios()
-    game_over= False
+    avatar= (input('Qual o seu nome, nobre estudante? '))
+    cenarios, nome_cenario_atual = cenarios_Ep()
+    game_over=False
     while not game_over:
         cenario_atual = cenarios[nome_cenario_atual]
-
-        # Aluno A: substitua este comentário pelo código para imprimir 
-        # o cenário atual.
+        titulo=cenario_atual['titulo']
+        descricao=cenario_atual['descrição']
+        print()
+        print (titulo)
+        print('-'*len(titulo))
+        print(descricao)
 
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
