@@ -85,6 +85,11 @@ def main():
         'começa a sua jornada, nobre aspirante a engenheiro. Boa Sorte'
         ' e que o espírito do sábio Marcos Lisboa esteja com você.')
     avatar= (input('Qual o seu nome, nobre estudante? '))
+    import random
+    info_avatar={'Nome':avatar
+                 'Vida':300,
+                 'Ataques':{'Ataque com airpods':30,
+                            'Ataque BAITA INFRA':150}}
     cenarios, nome_cenario_atual = cenarios_Ep()
     game_over=False
     while not game_over:
@@ -105,6 +110,63 @@ def main():
             print (titulo)
             print('-'*len(titulo))
             print(descricao)
+            print()
+            monstro= False
+            y=random.randint(0,8)
+            if y <= 3:
+                monstro= True
+            if monstro:
+                info_monstro={'Vida':120,
+                              'Ataque':50}
+                print ('Você trombou o Jacaré da GV gastando a Raposa Loka e terá que ' 
+                    'enfrentá-lo ou ser gastado pela GV pelo resto dos Econos')
+                print()
+                print ('Jacaré: ',info_monstro)
+                print()
+                print ('Você: ',info_avatar)
+                t=input('Deseja lutar ou fugir? ')
+                while t=='lutar' and info_monstro['Vida']>0 and info_avatar['Vida']>0:
+                    print('O monstro começa atacando...')
+                    x=random.randint(0,2)
+                    if x==1:
+                        print('O adversário tirou 50 de vida seus')
+                        info_avatar['Vida']-=50
+                    else:
+                        print('Ataque crítico, você perdeu 100 de vida')
+                        info_avatar['Vida']-=100
+                    print('Vida atual: ',info_avatar['Vida'])
+                    print()
+                    t=input('Deseja lutar ou fugir? ')
+                    print('Sua vez de atacar...')
+                    z=random.randint(0,3)
+                    if z==1:
+                        print('Você usou o ataque com airpods e tirou 30 do jacaré')
+                        info_monstro['Vida']-=30
+                    elif z==2:
+                        print('ataque crítico com airpods, causou 60 de dano')
+                        info_monstro['Vida']-=60
+                    else:
+                        print('Ataque BAITA INFRA, 150 de dano!!')
+                        info_monstro['Vida']-=150
+                    print('Vida do Jacaré: ',info_monstro['Vida'])
+                    print()
+                if info_monstro['Vida']<=0:
+                    print('Você derrotou o Jacaré da GV, parabéns')
+                    loot=input('Deseja lootear o Jacaré (sim ou não)?')
+                    if loot == 'sim':
+                        consumir=input('Você achou o Zsigmond dentro do Jacaré, deseja consumi-lo?' )
+                        print()
+                    if consumir=='sim':
+                        print('Você consumiu o corpo de um grande sábio da programação e '
+                            'adquiriu as suas habilidades. Com isso, você tem o necessário'
+                            'para concluir o EP e não precisa mais achar o Mestre Andrew')
+                        game_over= True
+                    monstro= False
+                elif info_avatar['Vida']<=0:
+                    print('Você foi derrotado!!')
+                    game_over= True
+                else:
+                    print('Você resolveu fugir, que vergonha')
             opcoes = cenario_atual['opções']
             for key, value in opcoes.items():
                 print("{0} : {1}".format(key, value))
