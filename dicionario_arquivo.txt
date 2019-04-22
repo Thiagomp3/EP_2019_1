@@ -1,0 +1,56 @@
+{
+    "inicio": {
+        "titulo": "saguão do Insper",
+        "descrição": "você se encontra no saguão do Insper e precisa achar o Mestre Andrew",
+        "opções": {
+            "segundo andar":"pegar elevador para o segundo andar",
+            "fumodromo":"ir até o fumodromo",
+            "Salas secretas": "vá para a sala secreta e se teletransporte para qualquer umas das salas do jogo!"
+        }
+    },
+    "segundo andar": {
+        "titulo":"segundo andar do prédio novo",
+        "descrição":"Você se encontra no segundo andar do Insper, porém o Mestre Andrew nao esta aí",
+        "opções":{
+            "Tobogã":"Pegar o tobogã para a sala dos professores"
+        }
+    },
+    "fumodromo": {
+        "titulo":"fumodromo do Insper",
+        "descrição": "Você adentra a misteriosa cortina de nicotina criada pelos Juuls, mas nao acha o Mestre. Eis que um Veterano te oferece um Juul da barganha",
+        "opções": {
+            "aceitar Juul":"Você aceita o Juul e sua visão se esfumaça",
+            "inicio": "Você ouve os conselhos de sua mae e nao aceita o Juul e volta para o Saguão do Insper"
+        }
+    },
+    "Tobogã": {
+        "titulo": "Tobogã traiçoeiro",
+        "descrição":"Voce pega o Tobogã, mas ao em vez de sair no terreo, voce se teletransporta para o Economiadas",
+        "opções": {
+            "Ficar bebendo": "voce entra na Tenda e encarna o espirito do Econo",
+            "inicio":"Voce resolve entrar no tobogã de novo e volta para o saguão do Insper"
+        }
+    },
+    "Ficar bebendo":{
+        "titulo": "Já é Econo!",
+        "descrição":"Você optou por esquecer o EP e ficar no Econo, atingindo o Nirvana!",
+        "opções": {}
+        },
+        "Aceitar Juul": {
+            "titulo": "Caminho da salvação",
+            "descrição": "Ao aceitar o Juul sua visao se esfumaça e voce é guiado diretamente para o Mestre Andrew",
+            "opções": {}
+    },
+    "Salas secretas": {
+        "titulo": "Teletransporte",
+        "descrição": "Escolha uma sala e se teletrasporte para ela",
+        "opções": {
+            "Inicio": "Você volta para o saguão do Insper",
+                "segundo andar": "Voce vai para o segundo andar",
+                "fumodromo": "Voce é direcionado para o fumodromo",
+                "Tobogã": "Voce entra no tobogã",
+                "Ficar bebendo": "Voce vai para o Econo em busca da diversão",
+                "Aceitar o Juul": "Você opta por aceitar o Juul e ir em busca de Mestre Andrew"
+        }
+    }
+}
