@@ -14,7 +14,7 @@ Created on Thu Apr 18 11:45:03 2019
 
 # EP 2019-1: Escape Insper
 #
-# Alunos: 
+# Alunos:
 # - aluno A: Thiago Pegorrer, thiagomp3@insper.edu.br
 # - aluno B: André Nadalini, andrebn1@insper.edu.br
 
@@ -25,7 +25,8 @@ def cenarios_Ep():
             'descrição': 'você se encontra no saguão do Insper e precisa achar o Mestre Andrew',
             'opções': {
                 'segundo andar':'pegar elevador para o segundo andar',
-                'fumodromo':'ir até o fumodromo'
+                'fumodromo':'ir até o fumodromo',
+                'Salas secretas': 'vá para a sala secreta e se teletransporte para qualquer umas das salas do jogo!'
             }
         },
         'segundo andar': {
@@ -56,10 +57,22 @@ def cenarios_Ep():
             'descrição':'Você optou por esquecer o EP e ficar no Econo, atingindo o Nirvana!',
             'opções': {}
         },
-            'Aceitar Juul': {
+        'Aceitar Juul': {
             'titulo': 'Caminho da salvação',
             'descrição': 'Ao aceitar o Juul sua visao se esfumaça e voce é guiado diretamente para o Mestre Andrew',
             'opções': {}
+        },
+        'Salas secretas': {
+            'titulo': 'Teletransporte',
+            'descrição': 'Escolha uma sala e se teletrasporte para ela',
+            'opções': {
+                'Inicio': 'Você volta para o saguão do Insper',
+                    'segundo andar': 'Voce vai para o segundo andar',
+                    'fumodromo': 'Voce é direcionado para o fumodromo',
+                    'Tobogã': 'Voce entra no tobogã',
+                    'Ficar bebendo': 'Voce vai para o Econo em busca da diversão',
+                    'Aceitar o Juul': 'Você opta por aceitar o Juul e ir em busca de Mestre Andrew'
+            }
         }
     }
     
@@ -71,22 +84,22 @@ def main():
     print ('Bem vindo ao Git')
     print ('----------------')
     print ()
-    print ('Após inúmeras aulas de python, usando if, while, for,' 
+    print ('Após inúmeras aulas de python, usando if, while, for,'
            'etc com o spyder você estava completamente confiante quanto'
            ' à matéria de DesSoft, pensando que o EP seria tranquilo e '
            'possível de ser feito um dia antes da entrega.')
     print ()
     print ('Porém ao abrir o pdf você se depara com algo novo, o GIT!!'
-        'Assim, comça a ler as instruções e tentar fazer o projeto'
-        'pórem, depois de passar mais de 3 horas e não conseguir nem'
-        'clonar o diretório para o seu computador nem entender o que'
-        'fazia push e pull, você resolve partir para outra abordagem,'
-        'pedir ao Mestre Andrew para adiar a entrega do EP. Assim '
-        'começa a sua jornada, nobre aspirante a engenheiro. Boa Sorte'
-        ' e que o espírito do sábio Marcos Lisboa esteja com você.')
+            'Assim, comça a ler as instruções e tentar fazer o projeto'
+            'pórem, depois de passar mais de 3 horas e não conseguir nem'
+            'clonar o diretório para o seu computador nem entender o que'
+            'fazia push e pull, você resolve partir para outra abordagem,'
+            'pedir ao Mestre Andrew para adiar a entrega do EP. Assim '
+            'começa a sua jornada, nobre aspirante a engenheiro. Boa Sorte'
+            ' e que o espírito do sábio Marcos Lisboa esteja com você.')
     avatar= (input('Qual o seu nome, nobre estudante? '))
     import random
-    info_avatar={'Nome':avatar
+    info_avatar={'Nome':avatar,
                  'Vida':300,
                  'Ataques':{'Ataque com airpods':30,
                             'Ataque BAITA INFRA':150}}
@@ -112,14 +125,14 @@ def main():
             print(descricao)
             print()
             monstro= False
-            y=random.randint(0,8)
+            y=random.randint(0,9)
             if y <= 3:
                 monstro= True
             if monstro:
                 info_monstro={'Vida':120,
                               'Ataque':50}
-                print ('Você trombou o Jacaré da GV gastando a Raposa Loka e terá que ' 
-                    'enfrentá-lo ou ser gastado pela GV pelo resto dos Econos')
+                print ('Você trombou o Jacaré da GV gastando a Raposa Loka e terá que '
+                       'enfrentá-lo ou ser gastado pela GV pelo resto dos Econos')
                 print()
                 print ('Jacaré: ',info_monstro)
                 print()
@@ -141,15 +154,15 @@ def main():
                     z=random.randint(0,3)
                     if z==1:
                         print('Você usou o ataque com airpods e tirou 30 do jacaré')
-                        info_monstro['Vida']-=30
+                            info_monstro['Vida']-=30
                     elif z==2:
                         print('ataque crítico com airpods, causou 60 de dano')
                         info_monstro['Vida']-=60
                     else:
                         print('Ataque BAITA INFRA, 150 de dano!!')
                         info_monstro['Vida']-=150
-                    print('Vida do Jacaré: ',info_monstro['Vida'])
-                    print()
+                        print('Vida do Jacaré: ',info_monstro['Vida'])
+                        print()
                 if info_monstro['Vida']<=0:
                     print('Você derrotou o Jacaré da GV, parabéns')
                     loot=input('Deseja lootear o Jacaré (sim ou não)?')
@@ -158,15 +171,17 @@ def main():
                         print()
                     if consumir=='sim':
                         print('Você consumiu o corpo de um grande sábio da programação e '
-                            'adquiriu as suas habilidades. Com isso, você tem o necessário'
-                            'para concluir o EP e não precisa mais achar o Mestre Andrew')
+                              'adquiriu as suas habilidades. Com isso, você tem o necessário'
+                              'para concluir o EP e não precisa mais achar o Mestre Andrew')
+                        print ('Acabou o jogo, parabens!!')
                         game_over= True
+                        break
                     monstro= False
-                elif info_avatar['Vida']<=0:
-                    print('Você foi derrotado!!')
-                    game_over= True
-                else:
-                    print('Você resolveu fugir, que vergonha')
+                    elif info_avatar['Vida']<=0:
+                        print('Você foi derrotado!!')
+                        game_over == True
+                    else:
+                        print('Você resolveu fugir, que vergonha')
             opcoes = cenario_atual['opções']
             for key, value in opcoes.items():
                 print("{0} : {1}".format(key, value))
@@ -176,6 +191,7 @@ def main():
                 nome_cenario_atual = escolha
             else:
                 print('escolha inválida')
+
 print ('Acabou o jogo')
 
 # Programa principal.
