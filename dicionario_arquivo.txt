@@ -4,9 +4,8 @@
         "descrição": "você se encontra no saguão do Insper e precisa achar o Mestre Andrew",
         "opções": {
             "segundo andar":"pegar elevador para o segundo andar",
-            "fumodromo":"ir até o fumodromo",
-            "Salas secretas": "vá para a sala secreta e se teletransporte para qualquer umas das salas do jogo!"
-        }
+            "fumodromo":"ir até o fumodromo"
+        } 
     },
     "segundo andar": {
         "titulo":"segundo andar do prédio novo",
@@ -17,7 +16,7 @@
     },
     "fumodromo": {
         "titulo":"fumodromo do Insper",
-        "descrição": "Você adentra a misteriosa cortina de nicotina criada pelos Juuls, mas nao acha o Mestre. Eis que um Veterano te oferece um Juul da barganha",
+        "descrição": "Você adentra a misteriosa cortina de nicotina criada pelos Juuls mas não encontra o mestre Andrew",
         "opções": {
             "aceitar Juul":"Você aceita o Juul e sua visão se esfumaça",
             "inicio": "Você ouve os conselhos de sua mae e nao aceita o Juul e volta para o Saguão do Insper"
@@ -43,14 +42,13 @@
     },
     "Salas secretas": {
         "titulo": "Teletransporte",
-        "descrição": "Escolha uma sala e se teletrasporte para ela",
+        "descrição": "Você se teletransportou para o sujinhuus e bebeu o litrão do Sujinuus, aumentando sua vitalidade",
         "opções": {
             "Inicio": "Você volta para o saguão do Insper",
                 "segundo andar": "Voce vai para o segundo andar",
                 "fumodromo": "Voce é direcionado para o fumodromo",
                 "Tobogã": "Voce entra no tobogã",
-                "Ficar bebendo": "Voce vai para o Econo em busca da diversão",
-                "Aceitar o Juul": "Você opta por aceitar o Juul e ir em busca de Mestre Andrew"
+                "Ficar bebendo": "Voce vai para o Econo em busca da diversão"     
         }
     }
 }
