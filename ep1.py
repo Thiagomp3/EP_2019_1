@@ -63,12 +63,12 @@ def main():
             print("Parabéns!! Você encontrou o Mestre Andrew e por conta das"
                   "habilidades que o Juul da barganha te forneceu, você"
                   "conseguiu convencer o Mestre a adiar a entrega. A missão"
-                  "foi um sucesso')
+                  "foi um sucesso")
             game_over = True
         else:
             print()
             print (titulo)
-            print('-'*len(titulo))
+            print("-"*len(titulo))
             print(descricao)
             print()
             monstro= False
