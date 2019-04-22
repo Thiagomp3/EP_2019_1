@@ -20,6 +20,8 @@ def cenarios_Ep():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
+Inventário={"Airpods": {"descrição":"par de fones padrão InsperBoy","dano":30}}
+
 
 def main():
     print ("Bem vindo ao Git")
@@ -38,6 +40,7 @@ def main():
             "pedir ao Mestre Andrew para adiar a entrega do EP. Assim "
             "começa a sua jornada, nobre aspirante a engenheiro. Boa Sorte"
             " e que o espírito do sábio Marcos Lisboa esteja com você.")
+    print()
     avatar= (input("Qual o seu nome, nobre estudante? "))
     import random
     info_avatar={"Nome":avatar,
@@ -108,29 +111,54 @@ def main():
                     print("Você derrotou o Jacaré da GV, parabéns")
                     loot=input("Deseja lootear o Jacaré (sim ou não)?")
                     if loot == "sim":
-                        consumir=input("Você achou o Zsigmond dentro do Jacaré, deseja consumi-lo?" )
-                        print()
-                    if consumir=="sim":
-                        print("Você consumiu o corpo de um grande sábio da programação e "
-                              "adquiriu as suas habilidades. Com isso, você tem o necessário"
-                              "para concluir o EP e não precisa mais achar o Mestre Andrew")
-                        print ("Acabou o jogo, parabens!!")
-                        game_over= True
-                        monstro= False
-                        break
+                        m=random.randint(0,4)
+                        if m==1:
+                            consumir=input("Você achou o Zsigmond dentro do Jacaré, deseja consumi-lo?" )
+                            print()
+                            if consumir=="sim":
+                                print("Você consumiu o corpo de um grande sábio da programação e"
+                                      "adquiriu as suas habilidades. Com isso, você tem o necessário"
+                                      "para concluir o EP e não precisa mais achar o Mestre Andrew")
+                                print()
+                                print()
+                                print("Acabou o jogo, parabens!!")
+                                game_over= True
+                                monstro= False
+                                break
+                        elif m>1:
+                            print ("Voce encontrou um kit médico")
+                            Inventário["Kit médico"]={"descrição":"Use para recuperar sua vida"}
+                        monstro=False
                         
                     elif info_avatar["Vida"]<=0:
                         print("Você foi derrotado!!")
-                        game_over == True
+                        game_over = True
+                        break 
                     else:
                         print("Você resolveu fugir, que vergonha")
             opcoes = cenario_atual["opções"]
             for key, value in opcoes.items():
                 print("{0} : {1}".format(key, value))
                 print ()
-            escolha = input("O que você quer fazer? ")
+            escolha = input("Para onde ir?/Abrir inventário: ")
             if escolha in opcoes:
                 nome_cenario_atual = escolha
+            elif escolha=="Sujinhuus":
+                nome_cenario_atual = "Salas secretas"
+            elif escolha=="Abrir inventário":
+                for key, value in Inventário.items():
+                    print ("{0} : {1}".format(key, value))
+                    print()
+                    u=input("Item que deseja usar: ")
+                    if u == "Kit médico":
+                        print ("Vida recuperada")
+                        info_avatar["Vida"]=300
+                    elif u=="Breja do Sujinhuus":
+                        print("Breja geladinha aumentou sua vitalidade")
+                        info_avatar["Vida"]=400
+                    else:
+                        print("opção inválida")
+                    
             else:
                 print("escolha inválida")
 
@@ -139,3 +167,4 @@ print ("Acabou o jogo")
 # Programa principal.
 if __name__ == "__main__":
     main()
+
