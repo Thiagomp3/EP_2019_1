@@ -20,7 +20,11 @@ def cenarios_Ep():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
-Inventário={"Airpods": {"descrição":"par de fones padrão InsperBoy","dano":30}}
+Inventário= {"Airpods": {"descrição":"par de fones padrão InsperBoy","dano":30},
+             "MacBook":{"descrição":"tal ferramenta permite que você tenha acesso a qualquer momento do EP"}
+        }
+chave=False          
+        
 
 
 def main():
@@ -70,7 +74,7 @@ def main():
             print()
             monstro= False
             y=random.randint(0,9)
-            if y <= 3:
+            if y <= 2:
                 monstro= True
             if monstro:
                 info_monstro={"Vida":120,
@@ -111,7 +115,7 @@ def main():
                     print("Você derrotou o Jacaré da GV, parabéns")
                     loot=input("Deseja lootear o Jacaré (sim ou não)?")
                     if loot == "sim":
-                        m=random.randint(0,4)
+                        m=random.randint(0,5)
                         if m==1:
                             consumir=input("Você achou o Zsigmond dentro do Jacaré, deseja consumi-lo?" )
                             print()
@@ -128,19 +132,23 @@ def main():
                         elif m>1:
                             print ("Voce encontrou um kit médico")
                             Inventário["Kit médico"]={"descrição":"Use para recuperar sua vida"}
-                        monstro=False
-                        
-                    elif info_avatar["Vida"]<=0:
-                        print("Você foi derrotado!!")
-                        game_over = True
-                        break 
-                    else:
-                        print("Você resolveu fugir, que vergonha")
+                        else:
+                            print("infelizmente voce nao encontrou nada")
+                    monstro=False    
+                elif info_avatar["Vida"]<=0:
+                    print("Você foi derrotado!!")
+                    game_over = True
+                    break 
+                else:
+                    print("Você resolveu fugir, que vergonha")
             opcoes = cenario_atual["opções"]
+            print ()
+            print("Opções: ")
             for key, value in opcoes.items():
                 print("{0} : {1}".format(key, value))
-                print ()
-            escolha = input("Para onde ir?/Abrir inventário: ")
+            print("Abrir inventário : veja seus itens")
+            print()
+            escolha = input("O que fazer? ")
             if escolha in opcoes:
                 nome_cenario_atual = escolha
             elif escolha=="Sujinhuus":
@@ -148,21 +156,40 @@ def main():
             elif escolha=="Abrir inventário":
                 for key, value in Inventário.items():
                     print ("{0} : {1}".format(key, value))
+                print()
+                u=input("Item que deseja usar/voltar: ")
+                if u == "Kit médico":
+                    print ("Vida recuperada")
+                    info_avatar["Vida"]=300
+                elif u=="voltar":
                     print()
-                    u=input("Item que deseja usar: ")
-                    if u == "Kit médico":
-                        print ("Vida recuperada")
-                        info_avatar["Vida"]=300
-                    elif u=="Breja do Sujinhuus":
-                        print("Breja geladinha aumentou sua vitalidade")
-                        info_avatar["Vida"]=400
-                    else:
-                        print("opção inválida")
-                    
+                elif u=="Breja do Sujinhuus":
+                    print("Breja geladinha aumentou sua vitalidade")
+                    info_avatar["Vida"]=400
+                else:
+                    print("nenhum item que pode ser utilizável com esse nome")   
+            elif nome_cenario_atual=="fumodromo":
+                print("Voce encontrou um Juul") 
+                Inventário["Juul"]={"descrição":"Esse item pode ser usado para realizar trocas"}
+                chave=True
+            elif nome_cenario_atual=="Banheiro":
+                if chave:
+                    print("Com muito respeito, você suplica ao Mestre por um adiamento do EP")
+                    print()
+                    print("O Mestre pede algo em troca e você oferece o Juul do Mestre Supremo")
+                    print()
+                    print("Ele aceita o presente e você consegue um adiamento!")
+                    print("Parabens!!! Você atingiu seu objetivo!")
+                    game_over=True
+                    break  
+                else:
+                    print("Com muito respeito você suplica ao mestre")
+                    print()
+                    print("O Mestre promete um adiamento caso você consiga recuperar o Juul do Mestre Supremo que ele deseja")               
             else:
                 print("escolha inválida")
 
-print ("Acabou o jogo")
+
 
 # Programa principal.
 if __name__ == "__main__":
