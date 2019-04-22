@@ -5,13 +5,6 @@ Created on Thu Apr 18 12:08:19 2019
 @author: W10
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 18 11:45:03 2019
-
-@author: W10
-"""
-
 # EP 2019-1: Escape Insper
 #
 # Alunos:
