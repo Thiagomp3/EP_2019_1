@@ -17,11 +17,12 @@ Created on Thu Apr 18 11:45:03 2019
 # Alunos:
 # - aluno A: Thiago Pegorrer, thiagomp3@insper.edu.br
 # - aluno B: André Nadalini, andrebn1@insper.edu.br
+import json
 
 def cenarios_Ep():
-    with open("dicionario_arquivo.json",'r') as cenario:
-        conteudo_cenario=cenario.read()
-    cenarios=json.loads(conteudo_cenario)
+    with open("dicionario_arquivo.txt", 'r') as cenario:
+        cenario_dict=json.load(cenario)
+    cenarios=cenario_dict
 
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
@@ -101,7 +102,7 @@ def main():
                     z=random.randint(0,3)
                     if z==1:
                         print("Você usou o ataque com airpods e tirou 30 do jacaré")
-                            info_monstro["Vida"]-=30
+                        info_monstro["Vida"]-=30
                     elif z==2:
                         print("ataque crítico com airpods, causou 60 de dano")
                         info_monstro["Vida"]-=60
@@ -122,8 +123,9 @@ def main():
                               "para concluir o EP e não precisa mais achar o Mestre Andrew")
                         print ("Acabou o jogo, parabens!!")
                         game_over= True
+                        monstro= False
                         break
-                    monstro= False
+                        
                     elif info_avatar["Vida"]<=0:
                         print("Você foi derrotado!!")
                         game_over == True
