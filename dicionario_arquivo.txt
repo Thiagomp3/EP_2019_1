@@ -11,34 +11,38 @@
         "titulo":"segundo andar do prédio novo",
         "descrição":"Você se encontra no segundo andar do Insper, porém o Mestre Andrew nao esta aí",
         "opções":{
-            "Tobogã":"Pegar o tobogã para a sala dos professores"
+            "Tobogã":"Pegar o tobogã para o terreo",
+            "Banheiro":"Ir ao banheiro para ver se o Mestre esta la"
         }
     },
     "fumodromo": {
         "titulo":"fumodromo do Insper",
         "descrição": "Você adentra a misteriosa cortina de nicotina criada pelos Juuls mas não encontra o mestre Andrew",
         "opções": {
-            "aceitar Juul":"Você aceita o Juul e sua visão se esfumaça",
+            "segundo andar":"Você aceita o Juu",
             "inicio": "Você ouve os conselhos de sua mae e nao aceita o Juul e volta para o Saguão do Insper"
         }
     },
     "Tobogã": {
         "titulo": "Tobogã traiçoeiro",
-        "descrição":"Voce pega o Tobogã, mas ao em vez de sair no terreo, voce se teletransporta para o Economiadas",
+        "descrição":"Voce pega o Tobogã, mas ao em vez de sair no terreo, voce vai parar no meio do Economiadas",
         "opções": {
             "Ficar bebendo": "voce entra na Tenda e encarna o espirito do Econo",
-            "inicio":"Voce resolve entrar no tobogã de novo e volta para o saguão do Insper"
+            "inicio":"Voce resolve entrar no tobogã de novo e voltar para o saguão do Insper"
         }
     },
     "Ficar bebendo":{
         "titulo": "Já é Econo!",
         "descrição":"Você optou por esquecer o EP e ficar no Econo, atingindo o Nirvana!",
         "opções": {}
-        },
-        "Aceitar Juul": {
-            "titulo": "Caminho da salvação",
-            "descrição": "Ao aceitar o Juul sua visao se esfumaça e voce é guiado diretamente para o Mestre Andrew",
-            "opções": {}
+    },
+    "Banheiro": {
+            "titulo": "Trono dos Deuses",
+            "descrição": "Voce entrou no banheiro do segundo andar e ouve o Mestre Andrew em um dos boxes",
+            "opções": {
+                "Tobogã":"Voce pega o tobogã para ir para o fumodromo",
+                "fumodromo":"Voce prefere ir pela escada para o fumodromo"
+            } 
     },
     "Salas secretas": {
         "titulo": "Teletransporte",
