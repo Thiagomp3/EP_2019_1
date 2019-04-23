@@ -19,7 +19,7 @@
         "titulo":"fumodromo do Insper",
         "descrição": "Você adentra a misteriosa cortina de nicotina criada pelos Juuls mas não encontra o mestre Andrew",
         "opções": {
-            "segundo andar":"Você aceita o Juu",
+            "segundo andar":"Ir para o segundo andar do prédio novo",
             "inicio": "Você ouve os conselhos de sua mae e nao aceita o Juul e volta para o Saguão do Insper"
         }
     },
