@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Apr 18 12:08:19 2019
-
 @author: W10
 """
 
@@ -23,7 +22,7 @@ def cenarios_Ep():
 Inventário= {"Airpods": {"descrição":"par de fones padrão InsperBoy","dano":30},
              "MacBook":{"descrição":"tal ferramenta permite que você tenha acesso a qualquer momento do EP"}
         }
-chave=False          
+          
         
 
 
@@ -45,6 +44,7 @@ def main():
             "começa a sua jornada, nobre aspirante a engenheiro. Boa Sorte"
             " e que o espírito do sábio Marcos Lisboa esteja com você.")
     print()
+    chave=False
     avatar= (input("Qual o seu nome, nobre estudante? "))
     import random
     info_avatar={"Nome":avatar,
@@ -57,60 +57,45 @@ def main():
         cenario_atual = cenarios[nome_cenario_atual]
         titulo=cenario_atual["titulo"]
         descricao=cenario_atual["descrição"]
-        if titulo == "Já é Econo":
-            print("Parabéns!! Você se juntou ao Nirvana e não precisa mais se preocupar com o EP.")
-            game_over = True
-        elif titulo =="Aceitar o Juul":
-            print("Parabéns!! Você encontrou o Mestre Andrew e por conta das"
-                  "habilidades que o Juul da barganha te forneceu, você"
-                  "conseguiu convencer o Mestre a adiar a entrega. A missão"
-                  "foi um sucesso")
-            game_over = True
-        else:
+        monstro= False
+        y=random.randint(0,9)
+        if y <= 2:
+            monstro= True
+        if monstro:
+            info_monstro={"Vida":120,
+                          "Ataque":50}
+            print ("Você trombou o Jacaré da GV gastando a Raposa Loka e terá que "
+                    "enfrentá-lo ou ser gastado pela GV pelo resto dos Econos")
             print()
-            print (titulo)
-            print("-"*len(titulo))
-            print(descricao)
+            print ("Jacaré: ",info_monstro)
             print()
-            monstro= False
-            y=random.randint(0,9)
-            if y <= 2:
-                monstro= True
-            if monstro:
-                info_monstro={"Vida":120,
-                              "Ataque":50}
-                print ("Você trombou o Jacaré da GV gastando a Raposa Loka e terá que "
-                       "enfrentá-lo ou ser gastado pela GV pelo resto dos Econos")
+            print ("Você: ",info_avatar)
+            t=input("Deseja lutar ou fugir? ")
+            while t=="lutar" and info_monstro["Vida"]>0 and info_avatar["Vida"]>0:
+                print("O monstro começa atacando...")
+                x=random.randint(0,2)
+                if x==1:
+                    print("O adversário tirou 50 de vida seus")
+                    info_avatar["Vida"]-=50
+                else:
+                    print("Ataque crítico, você perdeu 100 de vida")
+                    info_avatar["Vida"]-=100
+                print("Vida atual: ",info_avatar["Vida"])
                 print()
-                print ("Jacaré: ",info_monstro)
-                print()
-                print ("Você: ",info_avatar)
                 t=input("Deseja lutar ou fugir? ")
-                while t=="lutar" and info_monstro["Vida"]>0 and info_avatar["Vida"]>0:
-                    print("O monstro começa atacando...")
-                    x=random.randint(0,2)
-                    if x==1:
-                        print("O adversário tirou 50 de vida seus")
-                        info_avatar["Vida"]-=50
-                    else:
-                        print("Ataque crítico, você perdeu 100 de vida")
-                        info_avatar["Vida"]-=100
-                    print("Vida atual: ",info_avatar["Vida"])
+                print("Sua vez de atacar...")
+                z=random.randint(0,3)
+                if z==1:
+                    print("Você usou o ataque com airpods e tirou 30 do jacaré")
+                    info_monstro["Vida"]-=30
+                elif z==2:
+                    print("ataque crítico com airpods, causou 60 de dano")
+                    info_monstro["Vida"]-=60
+                else:
+                    print("Ataque BAITA INFRA, 150 de dano!!")
+                    info_monstro["Vida"]-=150
+                    print("Vida do Jacaré: ",info_monstro["Vida"])
                     print()
-                    t=input("Deseja lutar ou fugir? ")
-                    print("Sua vez de atacar...")
-                    z=random.randint(0,3)
-                    if z==1:
-                        print("Você usou o ataque com airpods e tirou 30 do jacaré")
-                        info_monstro["Vida"]-=30
-                    elif z==2:
-                        print("ataque crítico com airpods, causou 60 de dano")
-                        info_monstro["Vida"]-=60
-                    else:
-                        print("Ataque BAITA INFRA, 150 de dano!!")
-                        info_monstro["Vida"]-=150
-                        print("Vida do Jacaré: ",info_monstro["Vida"])
-                        print()
                 if info_monstro["Vida"]<=0:
                     print("Você derrotou o Jacaré da GV, parabéns")
                     loot=input("Deseja lootear o Jacaré (sim ou não)?")
@@ -141,6 +126,35 @@ def main():
                     break 
                 else:
                     print("Você resolveu fugir, que vergonha")
+        if cenario_atual["titulo"] == "Já é Econo!":
+            print("Você optou por ficar bebendo no Econo atingindo o Nirvana!!.")
+            game_over = True
+            print ("O jogo acabou!!")
+            break
+        else:
+            print()
+            print (titulo)
+            print("-"*len(titulo))
+            print(descricao)
+            print()
+            if titulo=="fumodromo do Insper":
+                print("Voce encontrou um Juul") 
+                Inventário["Juul"]={"descrição":"Esse item pode ser usado para realizar trocas"}
+                chave=True
+            elif titulo=="Trono dos Deuses":
+                if chave:
+                    print("Com muito respeito, você suplica ao Mestre por um adiamento do EP")
+                    print()
+                    print("O Mestre pede algo em troca e você oferece o Juul do Mestre Supremo")
+                    print()
+                    print("Ele aceita o presente e você consegue um adiamento!")
+                    print("Parabens!!! Você atingiu seu objetivo!")
+                    game_over=True
+                    break  
+                elif not chave:
+                    print("Com muito respeito você suplica ao mestre por um adiamento no ep")
+                    print()
+                    print("O Mestre promete um adiamento caso você consiga recuperar o Juul do Mestre Supremo que ele deseja") 
             opcoes = cenario_atual["opções"]
             print ()
             print("Opções: ")
@@ -168,24 +182,7 @@ def main():
                     info_avatar["Vida"]=400
                 else:
                     print("nenhum item que pode ser utilizável com esse nome")   
-            elif nome_cenario_atual=="fumodromo":
-                print("Voce encontrou um Juul") 
-                Inventário["Juul"]={"descrição":"Esse item pode ser usado para realizar trocas"}
-                chave=True
-            elif nome_cenario_atual=="Banheiro":
-                if chave:
-                    print("Com muito respeito, você suplica ao Mestre por um adiamento do EP")
-                    print()
-                    print("O Mestre pede algo em troca e você oferece o Juul do Mestre Supremo")
-                    print()
-                    print("Ele aceita o presente e você consegue um adiamento!")
-                    print("Parabens!!! Você atingiu seu objetivo!")
-                    game_over=True
-                    break  
-                else:
-                    print("Com muito respeito você suplica ao mestre")
-                    print()
-                    print("O Mestre promete um adiamento caso você consiga recuperar o Juul do Mestre Supremo que ele deseja")               
+                         
             else:
                 print("escolha inválida")
 
@@ -194,4 +191,3 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
-
